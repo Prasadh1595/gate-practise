@@ -1,0 +1,11 @@
+{
+  "name": "gate-pyq-server",
+  "version": "1.1.0",
+  "description": "Local GATE PYQ mock-test platform - zero-dependency Node.js server (API + built web app)",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node --no-warnings index.js"
+  },
+  "engines": { "node": ">=22.13.0" }
+}

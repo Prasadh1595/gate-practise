@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-ink: #1A1815;
+  --color-graphite: #241F1A;
+  --color-graphite-2: #2E2822;
+  --color-paper: #FAF6EF;
+  --color-paper-2: #F0EADC;
+  --color-mist: #DDD3BE;
+
+  --color-amber: #B5762A;
+  --color-amber-dim: #8A5A1F;
+  --color-amber-tint: #F3E4C9;
+
+  --color-teal: #14746F;
+  --color-teal-dim: #0F5854;
+  --color-teal-tint: #D3E9E7;
+
+  --color-rose: #B3433D;
+  --color-rose-dim: #8C332E;
+  --color-rose-tint: #F3DAD8;
+
+  --color-slate: #6B6255;
+  --color-slate-dim: #948A7A;
+
+  /* System fonts only: the app must look right with no internet connection. */
+  --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+
+  --radius-card: 10px;
+  --radius-bubble: 999px;
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body { @apply bg-paper text-ink font-body; }
+  html.dark body { @apply bg-ink text-paper; }
+  :focus-visible { outline: 2px solid #B5762A; outline-offset: 2px; }
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-card border border-mist dark:border-graphite-2 bg-white dark:bg-graphite
+           px-3 py-2 text-sm focus:border-amber outline-none;
+  }
+  .card {
+    @apply rounded-card border border-mist dark:border-graphite-2 bg-white dark:bg-graphite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
