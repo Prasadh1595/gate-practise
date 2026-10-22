@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: gate-practise
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: gate-practise-data
+      mountPath: /var/data
+      sizeGB: 1
